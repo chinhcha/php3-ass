@@ -50,7 +50,7 @@
                                 </ul>
 
                                 <h3 class="blog-title"><a href="blog-details.html">
-                                    <li>{{$item->title}} </li>
+                                    <h4>{{$item->title}} </h4>
                                 </a></h3>
                                 <p class="blog-desc">{{$item->content}}</p>
                                 <a href="{{route('detail',$item->id)}}" class="back-btn-border">Read More <i class="arrow_right"></i></a>
@@ -59,7 +59,7 @@
 
                     </div>
                      @endforeach
-                  
+
 
 
                     <!--================= Pagination Section End Here =================-->

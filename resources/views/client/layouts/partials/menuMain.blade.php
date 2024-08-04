@@ -34,7 +34,7 @@
                                 </svg>
                             </li>
 
-                            <li class="back-sign"><a href="login.html">Sign In</a></li>
+                            <li class="back-sign"><a href="{{route('login')}}">Sign In</a></li>
                             <li id="nav-expanders" class="nav-expander bar">
                                 <span class="back-hum1"></span>
                                 <span class="back-hum2"></span>
@@ -152,7 +152,7 @@
                                     <circle cx="11" cy="11" r="8"></circle>
                                     <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
                                 </svg></li>
-                            <li class="back-sign"><a href="login.html">Sign In</a></li>
+                            <li class="back-sign"><a href="{{route('login')}}">Sign In</a></li>
                             <li id="nav-expander" class="nav-expander bar">
                                 <span class="back-hum1"></span>
                                 <span class="back-hum2"></span>

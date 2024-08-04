@@ -15,7 +15,7 @@
     <div class="back-btm-content">
         <h3><a href="{{route('detail',$item->id)}}">{{$item -> title}}</a></h3>
         <ul>
-            <li class="back-author"><a href="#">{{$item -> author}}</a></li>
+            {{-- <li class="back-author"><a href="#">{{$item -> author}}</a></li> --}}
             <li class="back-date"><span></span>{{$item->created_at}}</li>
         </ul>
     </div>

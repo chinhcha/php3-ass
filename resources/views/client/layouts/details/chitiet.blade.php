@@ -7,11 +7,11 @@
                 <div class="breadcrumbs-inner">
                     <div class="container">
                         <div class="breadcrumbs-text">
-                            <h1 class="breadcrumbs-title">Blog Single</h1>
+                            <h1 class="breadcrumbs-title">Blog Detail</h1>
                             <div class="back-nav">
                                 <ul>
                                     <li><a href="{{ route('home') }}">Home</a></li>
-                                    <li>Blog Single</li>
+
                                 </ul>
                             </div>
                         </div>
@@ -32,7 +32,7 @@
                                     <img src="{{ asset($posts->image) }}" alt="Blog Image">
                                 </div>
 
-                                <p>{{ $posts->title }}</p>
+                                <h3>{{ $posts->title }}</h3>
 
                                 <p>{{ $posts->content }}</p>
                                 <div class="back-order-list">
@@ -124,7 +124,7 @@
                                                         <ul>
                                                             <li class="back-author"> <span><img
                                                                         src="{{ asset('theme/client/assets/images/author/1.jpg') }}"
-                                                                        alt="image"></span> <a href="#">{{$item->author}}
+                                                                        alt="image"></span> <a href="#">
                                                 </a> </li>
                                                         </ul>
                                                     </div>
@@ -170,7 +170,7 @@
                                                         <div class="dsc-comments">
                                                             <h6>{{ $item->name }}</h6>
                                                             <span class="reply"> <span class="date">{{$item->created_at}}</span></span>
-                                                            <p>{{$item->comment}}.</p>
+                                                            <p>That is great.</p>
                                                             <a href="#">Reply</a>
                                                         </div>
                                                     </div>
@@ -291,9 +291,9 @@
                                     </div>
                                     <div class="back-btm-content">
                                         <a href="#" class="back-cates">{{$item->name}}</a>
-                                        <h3><a href="#">{{$item->title}}</a></h3>
+                                        {{-- <h3><a href="{{route('detail',$item->id)}}">{{$item->title}}</a></h3> --}}
                                         <ul>
-                                            <li class="back-date">by <a href="#">{{$item->author}} </a></li>
+                                            <li class="back-date">by <a href="#"></a></li>
                                         </ul>
                                     </div>
                                 </li>
@@ -339,7 +339,7 @@
                                             <div class="titles">
                                                 <h4>{{ $item->name }}</h4>
                                                 <span></span>
-                                                <p>{{$item->comment}}</p>
+                                                <p>Good!</p>
                                             </div>
                                         </li>
                                     @endforeach
