@@ -163,7 +163,7 @@
                                                 <div class="row">
                                                     <div class="col-lg-1">
                                                         <div class="image-comments"><img
-                                                                src="{{ asset($item->image) }}"
+                                                                src="{{ \Storage::url($item->image) }}"
                                                                 alt=""> </div>
                                                     </div>
                                                     <div class="col-lg-11">

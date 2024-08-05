@@ -39,20 +39,7 @@
                                         <input type="text" class="form-control" name="name" id="name">
                                     </div>
 
-                                    {{-- <div class="mt-3">
-                                        <label for="parent_id" class="form-label">Category</label>
-                                        <select type="text" class="form-select" name="parent_id" id="parent_id">
-                                            <option value="" selected>Trống</option>
 
-                                            @foreach($parentCategories as $parent)
-
-                                                @php($each = "")
-
-                                                @include('admin.categories.nested-category', ['category' => $parent])
-
-                                            @endforeach
-                                        </select>
-                                    </div> --}}
                                 </div>
                             </div>
 

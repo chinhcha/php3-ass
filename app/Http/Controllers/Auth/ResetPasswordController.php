@@ -25,20 +25,22 @@ class ResetPasswordController extends Controller
         $user_id  = DB::table('password_reset_tokens')
             ->where('token', $request->token)
             ->first();
-            if (!$user_id) {
-                return back();
-            }
+        if (!$user_id) {
+            return back();
+        }
 
-            $user = User::where('email', $user_id->email)->first();
+        $user = User::where('email', $user_id->email)->first();
 
-            if (!$user) {
-                return back();
-            }
+        if (!$user) {
+            return back();
+        }
 
-           $user->update(['password'=> $request->password]);
+        $user->update(['password' => $request->password]);
 
-            DB::table('password_reset_tokens')->where('email', $user->email)->delete();
+        DB::table('password_reset_tokens')
+        ->where('email', $user->email)
+        ->delete();
 
-            return redirect()->route('login')->with('success', 'Cập nhật thành công');
+        return redirect()->route('login')->with('success', 'Cập nhật thành công');
     }
 }

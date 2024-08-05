@@ -58,14 +58,14 @@ Login
                             @endif
                             </p>
                             <p>
-                                <a href="{{ route('forgot') }}"> forgot password?</a>
+                                <a href="{{ route('forgot') }}"> Forgot password?</a>
                             </p>
                             {{-- <div class="back-check-box">
                                 <input type="checkbox" id="box-1"> Keep me signed in
                                 <p>Forgot your password?</p>
                             </div> --}}
                             <button type="submit">Sign In</button>
-                            <em class="signup">New to Neoton? <a href="registration.html">Sign Up</a></em>
+                            <em class="signup">New to Neoton? <a href="{{route('register')}}">Sign Up</a></em>
                         </form>
                     </div>
                 </div>

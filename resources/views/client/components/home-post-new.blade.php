@@ -9,7 +9,7 @@
             @endphp
 <li>
     <div class="image-areas">
-        <a href="#"><img src="{{ asset($item -> image )}}" alt="image"></a>
+        <a href="#"><img src="{{ \Storage::url($item -> image)}}" alt="image"></a>
         <a href="#" class="back-cate back-beauty">{{ $item -> cate}}</a>
     </div>
     <div class="back-btm-content">

@@ -31,10 +31,10 @@ class CategoryController extends Controller
     public function store(Request $request)
     {
 
-            Category::query()->create($request->all());
+        Category::query()->create($request->all());
 
-            return redirect()->route('admin.categories.index');
-
+        return redirect()->route('admin.categories.index')
+        ->with('success', 'Tạo mới thành công');
     }
 
     /**
@@ -42,7 +42,6 @@ class CategoryController extends Controller
      */
     public function show(string $id)
     {
-
     }
 
     /**
@@ -64,7 +63,8 @@ class CategoryController extends Controller
         $data->name = $request->input('name');
         $data->save();
 
-        return redirect()->route('admin.categories.index')->with('success', 'Category updated successfully!');
+        return redirect()->route('admin.categories.index')
+        ->with('success', 'Category updated successfully!');
     }
 
     /**
@@ -72,12 +72,10 @@ class CategoryController extends Controller
      */
     public function destroy(Category $category)
     {
-          $category->posts()->delete();
-           $category->delete();
+        $category->posts()->delete();
+        $category->delete();
 
 
-        return redirect()->route('admin.categories.index');
-
-
+        return redirect()->route('admin.categories.index')->with('success', 'Xóa thành công');
     }
 }

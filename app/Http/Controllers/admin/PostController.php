@@ -16,11 +16,9 @@ class PostController extends Controller
     public function index()
     {
         $data = Post::query()->with(['category'])->latest('id')->get();
-        foreach($data as $datum){
-            $datum->category->name;
-        }
 
-        return view('admin.products.list',compact(['data']));
+
+        return view('admin.products.list', compact(['data']));
     }
 
     /**
@@ -30,8 +28,7 @@ class PostController extends Controller
     {
 
         $categories = Category::query()->get();
-        return view('admin.products.create',compact('categories'));
-
+        return view('admin.products.create', compact('categories'));
     }
 
     /**
@@ -39,16 +36,17 @@ class PostController extends Controller
      */
     public function store(Request $request)
     {
-           $data = $request->except('image');
+        $data = $request->except('image');
         //    dd($request->all());
-           if($request->hasFile('image')){
+        if ($request->hasFile('image')) {
             $data['image'] = Storage::put("posts", $request->file('image'));
-           }
+        }
         Post::query()->create($data);
 
 
-        return redirect()->route('admin.products.index');
-
+        return redirect()
+            ->route('admin.products.index')
+            ->with('success', 'Tạo mới thành công');
     }
 
     /**
@@ -57,8 +55,7 @@ class PostController extends Controller
     public function show(string $id)
     {
         $post = Post::query()->findOrFail($id);
-        return view('admin.products.show',compact('post'));
-
+        return view('admin.products.show', compact('post'));
     }
 
     /**
@@ -67,10 +64,12 @@ class PostController extends Controller
     public function edit(string $id)
     {
 
-        $post = Post::query()->with('category')->findOrFail($id);
+        $post = Post::query()
+        ->with('category')
+        ->findOrFail($id);
         $categories = Category::query()->get();
 
-        return view('admin.products.edit',compact('post','categories'));
+        return view('admin.products.edit', compact('post', 'categories'));
     }
 
     /**
@@ -81,15 +80,16 @@ class PostController extends Controller
         $post = Post::query()->with('category')->findOrFail($id);
         $data = $request->except('image');
         //    dd($request->all());
-           if($request->hasFile('image')){
+        if ($request->hasFile('image')) {
             $data['image'] = Storage::put("posts", $request->file('image'));
-            if(!empty($post->image) && Storage::exists($post->image)){
+            if (!empty($post->image) && Storage::exists($post->image)) {
                 Storage::delete($post->image);
             }
-           }
-             $post->update($data);
+        }
+        $post->update($data);
 
-        return redirect()->route('admin.products.index',compact('post'));
+        return redirect()->route('admin.products.index', compact('post'))
+        ->with('success', 'Sửa  thành công');
     }
 
     /**
@@ -104,7 +104,6 @@ class PostController extends Controller
 
 
 
-     return back();
-
+        return back()->with('success', 'Xóa thành công');
     }
 }

@@ -25,10 +25,8 @@ class AuthController extends Controller
         if (Auth::attempt($credentials)) {
             $request->session()->regenerate();
 
-             Auth::user();
-                return redirect('/admin');
-
-
+            Auth::user();
+            return redirect('/admin');
         }
 
         return back()->withErrors([
@@ -60,7 +58,8 @@ class AuthController extends Controller
         return redirect()->route('login');
     }
 
-    public function logout(){
+    public function logout()
+    {
         Auth::logout();
 
         request()->session()->invalidate();
@@ -69,11 +68,12 @@ class AuthController extends Controller
 
         return redirect('/');
     }
-    public function verifyemail(String $id) {
-        $user = User::findOrFail($id) ;
-        $user -> update([
-            'email_verified_at' => now() ,
-        ]) ;
+    public function verifyemail(String $id)
+    {
+        $user = User::findOrFail($id);
+        $user->update([
+            'email_verified_at' => now(),
+        ]);
         return redirect()->route('home');
     }
 }
