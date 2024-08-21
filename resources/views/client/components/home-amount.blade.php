@@ -10,7 +10,7 @@
                     @foreach ($view as $item)
                     <li>
                         <div class="image-areas">
-                            <a href="#"><img src="{{ asset($item->image)}}" alt="image"></a>
+                            <a href="#"><img src="{{ \Storage::url($item -> image)}}" alt="image"></a>
                         </div>
                         <div class="back-btm-content">
                             <a href="#" class="back-cate back-tra">{{$item->cate}}</a>
@@ -53,7 +53,7 @@
                     @foreach ($view as $item)
                     <li>
                         <div class="image-areas">
-                            <a href="#"><img src="{{ asset($item->image)}}" alt="image"></a>
+                            <a href="#"><img src="{{ \Storage::url($item -> image)}}" alt="image"></a>
                         </div>
                         <div class="back-btm-content">
                             <a href="#" class="back-cates">{{$item->cate}}</a>
